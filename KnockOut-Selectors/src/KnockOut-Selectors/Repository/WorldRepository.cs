@@ -28,7 +28,7 @@ namespace KnockOutSelectors.Repository
 
         public IEnumerable<World> GetWorld()
         {
-            return Connection.Query<World>("select distinct cy.continent AS Continent, cy.name AS Country, co.name AS City from country cy join city co on co.countrycode = cy.code order by cy.continent, cy.name, co.name ASC");
+            return Connection.Query<World>("select distinct cy.continent, cy.name, co.name from country cy join city co on co.countrycode = cy.code");
         }
     }
 

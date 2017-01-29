@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace KnockOutSelectors.Models
 {
-    public class World
+    public class HomeModel
     {
-        public World()
+        public HomeModel()
         {
             loadHomes();
         }

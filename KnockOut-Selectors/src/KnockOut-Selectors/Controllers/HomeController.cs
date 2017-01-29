@@ -1,31 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using KnockOutSelectors.Models;
+using KnockOutSelectors.Repository;
+using Microsoft.Extensions.Configuration;
 
 namespace KnockOutSelectors.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly WorldRepository worldRepository;
+
+        public HomeController(IConfiguration configuration)
+        {
+            worldRepository = new WorldRepository(configuration);
+        }
+
         public ActionResult Index()
         {
             ViewBag.Message = "ASP.NET MVC with KnockOut";
-
-            if (Model == null)
-                Model = new World();
+            //if (Model == null)
+            //    Model = new HomeModel();
 
             return View();
         }
 
 
-        public ActionResult GetWorlds()
+        public ActionResult World()
         {
-            return Json(Model);
+            var list = worldRepository.GetWorld();
+            return Json(list);
         }
-
-        public static World Model { get; set; }
 
         public ActionResult About()
         {
