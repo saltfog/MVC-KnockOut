@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using KnockOutSelectors.Models;
 using KnockOutSelectors.Repository;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
+using KnockOutSelectors.Models;
 
 namespace KnockOutSelectors.Controllers
 {
@@ -9,6 +10,7 @@ namespace KnockOutSelectors.Controllers
     {
         private readonly WorldRepository worldRepository;
 
+        IEnumerable<World> list;
         public HomeController(IConfiguration configuration)
         {
             worldRepository = new WorldRepository(configuration);
@@ -22,11 +24,11 @@ namespace KnockOutSelectors.Controllers
 
             return View();
         }
-
-
-        public ActionResult World()
+        
+        public JsonResult World()
         {
-            var list = worldRepository.GetWorld();
+            IEnumerable<World> list;
+            list = worldRepository.GetWorld();
             return Json(list);
         }
 

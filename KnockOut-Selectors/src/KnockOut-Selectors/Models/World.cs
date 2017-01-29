@@ -7,9 +7,9 @@ namespace KnockOutSelectors.Models
 {
     public class World
     {
-        string Continent { get; set; }
-        string Country { get; set; }
-        string City { get; set; }
+        string continent { get; set; }
+        string country { get; set; }
+        string city { get; set; }
     }
     
 }

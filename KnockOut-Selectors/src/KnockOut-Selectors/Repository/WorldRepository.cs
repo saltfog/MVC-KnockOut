@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using KnockOutSelectors.Models;
+﻿using Dapper;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using System.Collections.Generic;
 using System.Data;
-using Dapper;
+using KnockOutSelectors.Models;
 
 namespace KnockOutSelectors.Repository
 {
@@ -28,7 +25,7 @@ namespace KnockOutSelectors.Repository
 
         public IEnumerable<World> GetWorld()
         {
-            return Connection.Query<World>("select distinct cy.continent, cy.name, co.name from country cy join city co on co.countrycode = cy.code");
+            return Connection.Query<World>("select continent, country.name AS country, city.name AS city from country join city on country.code = city.countrycode");
         }
     }
 

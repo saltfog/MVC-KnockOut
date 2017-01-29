@@ -41,9 +41,9 @@
                     </thead>
                     <tbody data-bind="foreach: selectFilterVM.selectedItems">
                         <tr>
-                            <td data-bind="text: Continent"></td>
-                            <td data-bind="text: Country"></td>
-                            <td data-bind="text: City"></td>
+                            <td data-bind="text: continent"></td>
+                            <td data-bind="text: country"></td>
+                            <td data-bind="text: city"></td>
                         </tr>
                     </tbody>
                 </table>
@@ -62,9 +62,9 @@
     //   model:        the model object for this view
     //   multiselect:  whether to allow selection of multiple values
     function loadSelects(model) {
-        new selectFilter('Continent', '', model, 'Continent', true);
-        new selectFilter('Country', 'Continent', model, 'Country', false);
-        new selectFilter('City', 'Country', model, 'City', true);
+        new selectFilter('Continent', '', model, 'continent', true);
+        //new selectFilter('Country', 'Continent', model, 'name', false);
+        //new selectFilter('City', 'Country', model, 'city', true);
     }
 
     // We added this simple top-level model to separate the knockout
@@ -83,8 +83,8 @@
 
         // To load the item list with an ajax call, uncomment this line and comment out the one below it.
         // Load homes collection from server, then populate allItems
-        $.getJSON("/Home/World", model.selectFilterVM.loadData(model.selectFilterVM));  // Change the URL as needed.
-
+        //$.getJSON("/Home/World", model.selectFilterVM.loadData(model.selectFilterVM));  // Change the URL as needed.
+        
         // To load the items from a local javascript array, uncomment this line and comment out the previous one.
         //model.selectFilterVM.loadListFromArray({ AllItems: AllItems} );
 
