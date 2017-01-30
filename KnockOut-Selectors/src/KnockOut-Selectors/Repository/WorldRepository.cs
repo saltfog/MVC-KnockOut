@@ -4,6 +4,7 @@ using Npgsql;
 using System.Collections.Generic;
 using System.Data;
 using KnockOutSelectors.Models;
+using System.Linq;
 
 namespace KnockOutSelectors.Repository
 {
@@ -23,9 +24,9 @@ namespace KnockOutSelectors.Repository
             }
         }
 
-        public IEnumerable<World> GetWorld()
+        public List<World> GetWorld()
         {
-            return Connection.Query<World>("select continent, country.name AS country, city.name AS city from country join city on country.code = city.countrycode");
+            return Connection.Query<World>("select continent, country.name AS country, city.name AS city from country join city on country.code = city.countrycode").ToList();
         }
     }
 

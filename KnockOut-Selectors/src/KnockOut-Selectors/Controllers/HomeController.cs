@@ -10,7 +10,6 @@ namespace KnockOutSelectors.Controllers
     {
         private readonly WorldRepository worldRepository;
 
-        IEnumerable<World> list;
         public HomeController(IConfiguration configuration)
         {
             worldRepository = new WorldRepository(configuration);
@@ -24,10 +23,10 @@ namespace KnockOutSelectors.Controllers
 
             return View();
         }
-        
-        public JsonResult World()
+
+        public IActionResult GetWorld()
         {
-            IEnumerable<World> list;
+            List<World> list = new List<Models.World>();
             list = worldRepository.GetWorld();
             return Json(list);
         }
