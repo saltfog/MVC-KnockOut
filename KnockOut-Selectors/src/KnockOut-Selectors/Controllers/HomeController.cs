@@ -24,13 +24,6 @@ namespace KnockOutSelectors.Controllers
             return View();
         }
 
-        public IActionResult GetWorld()
-        {
-            List<World> list = new List<Models.World>();
-            list = worldRepository.GetWorld();
-            return Json(list);
-        }
-
         public ActionResult About()
         {
             return View();
