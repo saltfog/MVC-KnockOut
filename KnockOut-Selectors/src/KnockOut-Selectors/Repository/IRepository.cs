@@ -8,6 +8,6 @@ namespace KnockOutSelectors.Repository
 {
     public interface IRepository
     {
-        List<World> GetWorld();
+        IEnumerable<World> GetWorld();
     }
 }

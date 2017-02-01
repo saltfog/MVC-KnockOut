@@ -24,9 +24,10 @@ namespace KnockOutSelectors.Repository
             }
         }
 
-        public List<World> GetWorld()
+        public IEnumerable<World> GetWorld()
         {
-            return Connection.Query<World>("select continent, country.name AS country, city.name AS city from country join city on country.code = city.countrycode").ToList();
+            var list = Connection.Query<World>("select * from country limit 30");
+            return list;
         }
     }
 

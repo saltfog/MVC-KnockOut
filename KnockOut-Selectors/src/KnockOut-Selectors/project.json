@@ -26,8 +26,7 @@
     "Dapper": "1.50.2",
     "Microsoft.jQuery.Unobtrusive.Ajax": "3.2.3",
     "Newtonsoft.Json": "9.0.1",
-    "Microsoft.AspNet.WebApi.Client": "5.2.3"
-  },
+    "Microsoft.AspNet.WebApi.Client": "5.2.3"  },
 
   "tools": {
     "BundlerMinifier.Core": "2.0.238",

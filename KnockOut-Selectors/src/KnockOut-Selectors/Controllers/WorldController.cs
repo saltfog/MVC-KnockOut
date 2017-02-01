@@ -23,13 +23,14 @@ namespace KnockOutSelectors.Controllers
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return View();
+            return View(worldRepository.GetWorld());
         }
 
+        [HttpGet]
         public IActionResult GetWorld()
         {
-            List<World> list = new List<World>();
-            list = worldRepository.GetWorld();
+            
+            var list = worldRepository.GetWorld();
             return Json(list);
         }
     }

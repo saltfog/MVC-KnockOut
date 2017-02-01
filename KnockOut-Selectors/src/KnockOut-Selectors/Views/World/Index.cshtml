@@ -1,8 +1,16 @@
-﻿@{
-    ViewBag.Title = "";
+﻿@model IEnumerable<KnockOutSelectors.Models.World>
+@{
+    ViewBag.Title = "World";
 }
 
-<h2>@ViewBag.Message</h2>
+
+@foreach(var item in Model)
+{
+    <li>
+       
+    </li>
+}
+@*<h2>@ViewBag.Message</h2>
 <div class="container-fluid">
     <div class="row">
         <div class="form-group">
@@ -91,4 +99,4 @@
     });
 
     </script>
-}
+}*@
