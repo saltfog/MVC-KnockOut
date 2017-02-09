@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using KnockOutSelectors.Models;
 using KnockOutSelectors.Repository;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Routing;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,11 +27,10 @@ namespace KnockOutSelectors.Controllers
             return View(worldRepository.GetWorld());
         }
 
-        [HttpGet]
+        [HttpGet("world/getworld")]
         public IActionResult GetWorld()
         {
-            
-            var list = worldRepository.GetWorld();
+            var list = worldRepository.GetWorld().ToList();
             return Json(list);
         }
     }

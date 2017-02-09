@@ -24,7 +24,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-5 small">
+            <div class="col-md-offset-6">
                     <table class="table table-striped table-hover table-condensed table-bordered">
                         <thead>
                             <tr>
@@ -74,11 +74,11 @@
     //   model:        the model object for this view
     //   multiselect:  whether to allow selection of multiple values
     function loadSelects(model) {
-        new selectFilter('State', '', model, 'State', true);
+        new selectFilter('State', '', model, 'State', false);
         new selectFilter('City', 'State', model, 'City', false);
-        new selectFilter('Zip', 'City', model, 'Zip Code', true);
-        new selectFilter('BRs', 'Zip', model, 'Number of bedrooms', true);
-        new selectFilter('HomeType', 'BRs', model, 'Home Type', true);
+        new selectFilter('Zip', 'City', model, 'Zip Code', false);
+        new selectFilter('BRs', 'Zip', model, 'Number of bedrooms', false);
+        new selectFilter('HomeType', 'BRs', model, 'Home Type', false);
     }
 
     // One way to load the list of objects to be filtered by this page.

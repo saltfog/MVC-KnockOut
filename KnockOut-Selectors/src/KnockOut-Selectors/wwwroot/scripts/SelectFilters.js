@@ -6,6 +6,12 @@ ko.observableArray.fn.loadByProperties = function (propNames, matchValues) {
     var self = this;
     return function () {
         var allItems = self(), matchingItems = [];
+        //if (allItems) {
+        //    allItems = allItems.length;
+        //}
+        //else {
+        //    allItems = 0;
+        //}
         for (var i = 0; i < allItems.length; i++) {
             var current = allItems[i];
             var ismatch = true;
@@ -95,6 +101,12 @@ function selectFilter(selectName, parentName, viewmodel, label, multi) {
     // and load them into the availableValues array.
     this.getAvailableValues = function (items) {
         var matchingValues = [];
+        //if (items) {
+        //    items = items.length;
+        //}
+        //else {
+        //    items = 0;
+        //}
         for (var i = 0; i < items.length; i++) {
             var current = items[i][this.name];
             if (matchingValues.indexOf(current) == -1)
